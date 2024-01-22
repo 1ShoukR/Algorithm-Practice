@@ -29,6 +29,9 @@ Usually, we want to make another function to be the recursive funtion, if that m
 SEE `walk` Function
 */ 
 
+// When do you even want to use recursion? 
+// Answer: When you cannot concretely use a for loop,
+// meaning there is no defined end, especially if there's a branching factor
 
 // Define the directions we can move in the maze: up, down, left, right
 const directions = [
@@ -68,6 +71,12 @@ const walk = (maze: string[], wall: string, curr: Point, end: Point, seen: boole
 
     // Recursive step: Explore all four directions
     for (let i = 0; i < directions.length; i++) {
+
+        // Extracting the direction coordinates from the 'directions' array using array destructuring.
+        // 'directions[i]' refers to the i-th direction in the directions array (like up, down, left, right).
+        // This line assigns the first element of the 'directions[i]' array to 'x' and the second element to 'y'.
+        // These 'x' and 'y' values represent the horizontal and vertical movements for the current direction.
+        // For example, if 'directions[i]' is [-1, 0], 'x' becomes -1 (move one step up) and 'y' becomes 0 (no vertical movement).
         const [x ,y] = directions[i]
         // Recursively call 'walk' to explore in the direction [x, y]
         const complete = walk(maze, wall, {x: curr.x + x, y: curr.y + y}, end, seen, path)
