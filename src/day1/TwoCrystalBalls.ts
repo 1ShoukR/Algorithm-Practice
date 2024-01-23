@@ -1,4 +1,5 @@
 export default function two_crystal_balls(breaks: boolean[]): number {
+    // Two Crystall Balls solved with Binary Search for efficiency
     const jumpAmount = Math.floor(Math.sqrt(breaks.length))
     let i = jumpAmount
     for (; i < breaks.length; i += jumpAmount) {
